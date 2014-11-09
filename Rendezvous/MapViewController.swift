@@ -9,11 +9,20 @@
 import UIKit
 
 class MapViewController: UIViewController {
-
+    
+    //Holds managing container
+    var container: ContainerViewController!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         
+    }
+    
+    
+    
+    @IBAction func postEventBtn(sender: AnyObject) {
+        container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
     }
 
     override func didReceiveMemoryWarning() {

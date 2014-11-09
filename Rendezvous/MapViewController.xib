@@ -11,20 +11,26 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Map View" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d1K-3d-1ps">
-                    <rect key="frame" x="262" y="289" width="76" height="21"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-mL-05q">
+                    <rect key="frame" x="217" y="285" width="167" height="30"/>
+                    <color key="backgroundColor" red="0.43137258290000002" green="0.0" blue="0.94901967050000002" alpha="1" colorSpace="deviceRGB"/>
+                    <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
+                    <state key="normal" title="Post From Location">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="postEventBtn:" destination="-1" eventType="touchUpInside" id="IlS-8T-WmQ"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerX" secondItem="d1K-3d-1ps" secondAttribute="centerX" id="hM6-BK-a4T"/>
-                <constraint firstAttribute="centerY" secondItem="d1K-3d-1ps" secondAttribute="centerY" id="kNJ-kA-Uli"/>
+                <constraint firstAttribute="centerY" secondItem="zeB-mL-05q" secondAttribute="centerY" id="lli-OP-p34"/>
+                <constraint firstAttribute="centerX" secondItem="zeB-mL-05q" secondAttribute="centerX" id="phS-i2-dfN"/>
             </constraints>
         </view>
     </objects>

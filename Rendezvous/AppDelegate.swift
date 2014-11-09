@@ -15,7 +15,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // Override point for customization after application launch.
+        //Setting up Parse
+        Parse.setApplicationId("Hgj3JBmV3Ep9HzJDK8wC6mCDu6pqrkABrf45Jwh9", clientKey: "N2Y9Iv2PScKzt1QAWIv9Gy48Jk3eNNn98rGKCawj")
+        
+        //Send test object to Parse
+        /*var testObject: PFObject = PFObject(className: "TestObject")
+        testObject["foo"] = "bar"
+        testObject.setObject("user1", forKey: "user")
+        testObject.saveInBackground()*/
+        
+        FBAppEvents.activateApp()
+        
         return true
     }
     

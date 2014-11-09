@@ -8,17 +8,56 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController {
+class ContainerViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView?
+    
+    var mapView: MapViewController!
+    var feedView: FeedViewController!
+    var postView: PostViewController!
+    
+    
+    override func viewDidAppear(animated: Bool) {
+        if(PFUser.currentUser() == nil){
+            var user: PFUser = PFUser()
+            user.username = "connor"
+            user.password = "giles"
+            
+            //Sign up for user
+            /*user.signUpInBackgroundWithBlock({
+            (success:Bool!, error:NSError!) -> Void in
+            if error == nil{
+            println("success!")
+            }
+            })*/
+            
+            //Login to existing user
+            PFUser.logInWithUsernameInBackground(user.username, password: user.password)
+
+        }
+    }
+    
+    
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        println("test")
+        
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         //Create the three views used in the view container
-        var mapView: MapViewController = MapViewController(nibName: "MapViewController", bundle: nil)
-        var feedView: MapViewController = MapViewController(nibName: "FeedViewController", bundle: nil)
-        var postView: MapViewController = MapViewController(nibName: "PostViewController", bundle: nil)
+        mapView = MapViewController(nibName: "MapViewController", bundle: nil)
+        feedView = FeedViewController(nibName: "FeedViewController", bundle: nil)
+        postView = PostViewController(nibName: "PostViewController", bundle: nil)
+        
+        //Set container object in each view
+        
+        mapView.container = self
+        feedView.container = self
+        postView.container = self
         
         //Add in each view to the container view hierarchy
         //Add them in opposite order since the view hieracrhy is a stack
@@ -46,6 +85,11 @@ class ContainerViewController: UIViewController {
         self.scrollView!.contentSize = CGSizeMake(scrollWidth, scrollHeight)
         
         self.scrollView!.scrollRectToVisible(mapView.view.frame, animated: false)
+        
+        //Show Facebook Login
+        /*let loginView: FBLoginView = FBLoginView()
+        loginView.center = self.view.center
+        self.view.addSubview(loginView)*/
         
         
     }
