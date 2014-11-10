@@ -8,35 +8,61 @@
 
 import UIKit
 
-class FeedViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+
+class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var container: ContainerViewController!
+    //var posts: PFObject = PFObject(className: "Posts")
     
+    @IBOutlet weak var feedTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        return 1
+    @IBAction func postEventBtn(sender: AnyObject) {
+        container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
     }
-    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
+        return container.feedData.count
+    }
+    @IBAction func refreshFeed(sender: AnyObject) {
+        container.loadData()
+    }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "test")
+        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "point")
         
-        //cell.textLabel.text = taskMgr.tasks[indexPath.row].name
-        //cell.detailTextLabel?.text = taskMgr.tasks[indexPath.row].desc
+        //Get
+        let point: PFObject = container.feedData.objectAtIndex(indexPath.row) as PFObject
+        let loc: PFGeoPoint = point.objectForKey("location") as PFGeoPoint
+        
+        //Find Username
+        /*let userQuery: PFQuery = PFQuery(className: "User")
+        userQuery.whereKey("objectId", equalTo: point.objectForKey("user").objectId)
+        //userQuery.includeKey("user")
+        
+        var userName: String!
+
+        
+        userQuery.findObjectsInBackgroundWithBlock({
+            (objects: [AnyObject]!, error: NSError!)->Void in
+            println(objects.count)
+            /*if error == nil && objects.count>0 {
+                let user: PFObject = objects[0] as PFObject
+                userName = user.objectForKey("username") as String
+            }*/
+        })*/
+        
+        //println(point.objectForKey("user").objectId)
+        
+        cell.textLabel.text = "\(loc.latitude), \(loc.longitude)"
         
         return cell
     }
-    
     
 
     /*

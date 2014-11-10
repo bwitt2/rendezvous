@@ -7,15 +7,34 @@
 //
 
 import UIKit
+import MapKit
 
 class MapViewController: UIViewController {
     
     //Holds managing container
     var container: ContainerViewController!
     
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    func postPoints(){
+        for point in container.locations{
+            let location = CLLocationCoordinate2D(
+                latitude: point.latitude,
+                longitude: point.longitude
+            )
+            
+            let annotation = MKPointAnnotation()
+            annotation.setCoordinate(location)
+            //annotation.title = "Big Ben"
+            //annotation.subtitle = "London"
+            mapView.addAnnotation(annotation)
+            
+        }
         
     }
     
@@ -24,13 +43,22 @@ class MapViewController: UIViewController {
     @IBAction func postEventBtn(sender: AnyObject) {
         container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
     }
+    @IBAction func refreshFeed(sender: AnyObject) {
+        container.loadData()
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func swipeRight(sender: AnyObject) {
+        container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
+    }
 
+    @IBAction func swipeLeft(sender: AnyObject) {
+        container.scrollView!.scrollRectToVisible(container.feedView.view.frame, animated: true)
+    }
     /*
     // MARK: - Navigation
 

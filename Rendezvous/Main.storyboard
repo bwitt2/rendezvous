@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Zgs-YN-gOq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14B17" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="b4F-oV-ajO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
@@ -31,6 +31,7 @@
                             <constraint firstAttribute="trailing" secondItem="Dlk-aB-WAQ" secondAttribute="trailing" id="z0O-zF-uqN"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="u6k-sg-Y87"/>
                     <connections>
                         <outlet property="scrollView" destination="Dlk-aB-WAQ" id="P9X-0c-NtJ"/>
                     </connections>
@@ -38,6 +39,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9zg-Sp-BfV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="99" y="400"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="x6Q-7f-Eek">
+            <objects>
+                <viewController id="b4F-oV-ajO" customClass="LoginViewController" customModule="Rendezvous" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S0p-Il-2he"/>
+                        <viewControllerLayoutGuide type="bottom" id="SaM-aE-x62"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bF0-A0-bmh">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Uzt-VC-k1Y">
+                                <rect key="frame" x="266" y="285" width="68" height="30"/>
+                                <state key="normal" title="Facebook">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="facebookBtn:" destination="b4F-oV-ajO" eventType="touchUpInside" id="gP2-0k-mc1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Uzt-VC-k1Y" secondAttribute="centerY" id="4vg-NK-PZ8"/>
+                            <constraint firstAttribute="centerX" secondItem="Uzt-VC-k1Y" secondAttribute="centerX" id="xTX-Sj-6V3"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="Zgs-YN-gOq" kind="custom" identifier="afterLogin" id="2fS-QC-fGU"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yN3-ZN-5DX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-610" y="400"/>
         </scene>
     </scenes>
 </document>

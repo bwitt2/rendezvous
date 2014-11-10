@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B1557DB61A103A3B005BD700 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1557DB51A103A3B005BD700 /* GoogleMaps.framework */; };
+		B1557DB81A103DCE005BD700 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1557DB71A103DCE005BD700 /* MapKit.framework */; };
 		B1705B2C1A0EBD1400538869 /* Rendezvous.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B1705B2A1A0EBD1400538869 /* Rendezvous.xcdatamodeld */; };
 		B1705B331A0EBD1400538869 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1705B321A0EBD1400538869 /* Images.xcassets */; };
 		B1705B361A0EBD1400538869 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1705B341A0EBD1400538869 /* LaunchScreen.xib */; };
@@ -35,6 +37,7 @@
 		B1B641341A0F10B400CFA4A0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B641331A0F10B400CFA4A0 /* StoreKit.framework */; };
 		B1B641361A0F10C100CFA4A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B641351A0F10C100CFA4A0 /* SystemConfiguration.framework */; };
 		B1B641381A0F121A00CFA4A0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B641371A0F121A00CFA4A0 /* FacebookSDK.framework */; };
+		B1F66DAF1A1024F400ECC68B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F66DAE1A1024F400ECC68B /* LoginViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +51,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B1557DB51A103A3B005BD700 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
+		B1557DB71A103DCE005BD700 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B1705B231A0EBD1400538869 /* Rendezvous.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rendezvous.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1705B271A0EBD1400538869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1705B2B1A0EBD1400538869 /* Rendezvous.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Rendezvous.xcdatamodel; sourceTree = "<group>"; };
@@ -81,6 +86,7 @@
 		B1B641331A0F10B400CFA4A0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B1B641351A0F10C100CFA4A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B1B641371A0F121A00CFA4A0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		B1F66DAE1A1024F400ECC68B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1557DB81A103DCE005BD700 /* MapKit.framework in Frameworks */,
 				B1B641361A0F10C100CFA4A0 /* SystemConfiguration.framework in Frameworks */,
 				B1B641341A0F10B400CFA4A0 /* StoreKit.framework in Frameworks */,
 				B1B641321A0F10AE00CFA4A0 /* Security.framework in Frameworks */,
@@ -102,6 +109,7 @@
 				B1B641381A0F121A00CFA4A0 /* FacebookSDK.framework in Frameworks */,
 				B1B6411F1A0F0FDC00CFA4A0 /* Bolts.framework in Frameworks */,
 				B1B641221A0F0FDC00CFA4A0 /* ParseUI.framework in Frameworks */,
+				B1557DB61A103A3B005BD700 /* GoogleMaps.framework in Frameworks */,
 				B1B641211A0F0FDC00CFA4A0 /* ParseFacebookUtils.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,6 +148,7 @@
 				B1B641171A0F0BEB00CFA4A0 /* Frameworks */,
 				B1705B591A0EBD6800538869 /* ViewControllers */,
 				B1705B531A0EBD4400538869 /* AppDelegate.swift */,
+				B1F66DAE1A1024F400ECC68B /* LoginViewController.swift */,
 				B1705B551A0EBD5400538869 /* Main.storyboard */,
 				B1B18E4A1A0EC25F00857263 /* ContainerViewController.swift */,
 				B1705B321A0EBD1400538869 /* Images.xcassets */,
@@ -192,6 +201,8 @@
 		B1B641171A0F0BEB00CFA4A0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1557DB71A103DCE005BD700 /* MapKit.framework */,
+				B1557DB51A103A3B005BD700 /* GoogleMaps.framework */,
 				B1B641371A0F121A00CFA4A0 /* FacebookSDK.framework */,
 				B1B641351A0F10C100CFA4A0 /* SystemConfiguration.framework */,
 				B1B641331A0F10B400CFA4A0 /* StoreKit.framework */,
@@ -314,6 +325,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F66DAF1A1024F400ECC68B /* LoginViewController.swift in Sources */,
 				B1B18E5A1A0EC2D500857263 /* PostViewController.swift in Sources */,
 				B1705B541A0EBD4400538869 /* AppDelegate.swift in Sources */,
 				B1B18E4B1A0EC25F00857263 /* ContainerViewController.swift in Sources */,

@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Rendezvous" customModuleProvider="target">
             <connections>
+                <outlet property="mapView" destination="Lac-oy-FlL" id="ySb-fT-MEF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -14,24 +15,61 @@
             <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zeB-mL-05q">
-                    <rect key="frame" x="217" y="285" width="167" height="30"/>
-                    <color key="backgroundColor" red="0.43137258290000002" green="0.0" blue="0.94901967050000002" alpha="1" colorSpace="deviceRGB"/>
-                    <inset key="contentEdgeInsets" minX="12" minY="6" maxX="12" maxY="6"/>
-                    <state key="normal" title="Post From Location">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
+                <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tA-2U-a0y">
+                    <rect key="frame" x="0.0" y="21" width="600" height="44"/>
+                    <color key="barTintColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <textAttributes key="titleTextAttributes">
+                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </textAttributes>
+                    <items>
+                        <navigationItem title="Rendezvous" id="oRU-XY-2xq">
+                            <barButtonItem key="leftBarButtonItem" systemItem="add" id="PdX-1R-g9J">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="postEventBtn:" destination="-1" id="fSU-B2-513"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Okn-zp-GAN">
+                                <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="refreshFeed:" destination="-1" id="TS8-cy-Fkm"/>
+                                </connections>
+                            </barButtonItem>
+                        </navigationItem>
+                    </items>
+                </navigationBar>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-oy-FlL">
+                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                    <gestureRecognizers/>
                     <connections>
-                        <action selector="postEventBtn:" destination="-1" eventType="touchUpInside" id="IlS-8T-WmQ"/>
+                        <outletCollection property="gestureRecognizers" destination="cLd-Yn-0wq" appends="YES" id="AWl-A3-gdA"/>
+                        <outletCollection property="gestureRecognizers" destination="zYu-5L-Hzp" appends="YES" id="IFO-1a-Rz3"/>
                     </connections>
-                </button>
+                </mapView>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="centerY" secondItem="zeB-mL-05q" secondAttribute="centerY" id="lli-OP-p34"/>
-                <constraint firstAttribute="centerX" secondItem="zeB-mL-05q" secondAttribute="centerX" id="phS-i2-dfN"/>
+                <constraint firstAttribute="bottom" secondItem="Lac-oy-FlL" secondAttribute="bottom" id="Bza-59-RCz"/>
+                <constraint firstItem="6tA-2U-a0y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Elu-HD-tPD"/>
+                <constraint firstItem="6tA-2U-a0y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="21" id="GA0-5l-sVc"/>
+                <constraint firstItem="Lac-oy-FlL" firstAttribute="top" secondItem="6tA-2U-a0y" secondAttribute="bottom" id="HJy-7s-ByJ"/>
+                <constraint firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="p0b-tW-vbX"/>
+                <constraint firstItem="Lac-oy-FlL" firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="uuk-dR-vaI"/>
+                <constraint firstItem="Lac-oy-FlL" firstAttribute="leading" secondItem="6tA-2U-a0y" secondAttribute="leading" id="vva-k1-UUX"/>
             </constraints>
+            <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
+        <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="cLd-Yn-0wq">
+            <rectEdge key="edges" left="YES"/>
+            <connections>
+                <action selector="swipeRight:" destination="-1" id="s4h-Zo-t6D"/>
+            </connections>
+        </screenEdgePanGestureRecognizer>
+        <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="zYu-5L-Hzp">
+            <rectEdge key="edges" right="YES"/>
+            <connections>
+                <action selector="swipeLeft:" destination="-1" id="JCc-Mc-l9u"/>
+            </connections>
+        </screenEdgePanGestureRecognizer>
     </objects>
 </document>

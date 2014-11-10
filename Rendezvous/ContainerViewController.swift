@@ -16,6 +16,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate {
     var feedView: FeedViewController!
     var postView: PostViewController!
     
+    var feedData: NSMutableArray = NSMutableArray()
+    var locations: NSMutableArray = NSMutableArray()
     
     override func viewDidAppear(animated: Bool) {
         if(PFUser.currentUser() == nil){
@@ -32,16 +34,14 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate {
             })*/
             
             //Login to existing user
-            PFUser.logInWithUsernameInBackground(user.username, password: user.password)
-
+            //PFUser.logInWithUsernameInBackground(user.username, password: user.password)
         }
     }
     
     
     
     func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
-        println("test")
-        
+        println("Scrolled")
         
     }
     
@@ -86,12 +86,40 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate {
         
         self.scrollView!.scrollRectToVisible(mapView.view.frame, animated: false)
         
-        //Show Facebook Login
-        /*let loginView: FBLoginView = FBLoginView()
-        loginView.center = self.view.center
-        self.view.addSubview(loginView)*/
+    }
+    
+    override func viewWillAppear(animated: Bool){
+        loadData()
+    }
+    
+    func loadData(){
+        feedData.removeAllObjects()
         
+        var findFeedData: PFQuery = PFQuery(className: "Posts")
         
+        findFeedData.findObjectsInBackgroundWithBlock(){
+            (objects: [AnyObject]!, error: NSError!)->Void in
+            if error == nil{
+                for object in objects{
+                    //NSLog("Loaded: %@", object.objectId)  //FOR TESTING
+                    self.feedData.addObject(object)
+                    self.locations.addObject(object.objectForKey("location")!)
+                }
+                
+                //Reverse array
+                var array: NSArray = self.feedData.reverseObjectEnumerator().allObjects
+                self.feedData = NSMutableArray(array: array)
+                
+                println("Loaded \(self.feedData.count) points")
+                
+                self.feedView.feedTable.reloadData()
+                self.mapView.postPoints()
+                
+            }
+            else{
+                NSLog("Error: %@ %@", error, error.userInfo!)
+            }
+        }
     }
 
     override func didReceiveMemoryWarning() {
