@@ -15,6 +15,14 @@
             <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-oy-FlL">
+                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                    <gestureRecognizers/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="cLd-Yn-0wq" appends="YES" id="AWl-A3-gdA"/>
+                        <outletCollection property="gestureRecognizers" destination="zYu-5L-Hzp" appends="YES" id="IFO-1a-Rz3"/>
+                    </connections>
+                </mapView>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tA-2U-a0y">
                     <rect key="frame" x="0.0" y="21" width="600" height="44"/>
                     <color key="barTintColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,14 +46,6 @@
                         </navigationItem>
                     </items>
                 </navigationBar>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-oy-FlL">
-                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
-                    <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="cLd-Yn-0wq" appends="YES" id="AWl-A3-gdA"/>
-                        <outletCollection property="gestureRecognizers" destination="zYu-5L-Hzp" appends="YES" id="IFO-1a-Rz3"/>
-                    </connections>
-                </mapView>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>

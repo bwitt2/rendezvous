@@ -13,15 +13,6 @@
 		B1705B331A0EBD1400538869 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1705B321A0EBD1400538869 /* Images.xcassets */; };
 		B1705B361A0EBD1400538869 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1705B341A0EBD1400538869 /* LaunchScreen.xib */; };
 		B1705B421A0EBD1400538869 /* RendezvousTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1705B411A0EBD1400538869 /* RendezvousTests.swift */; };
-		B1705B541A0EBD4400538869 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1705B531A0EBD4400538869 /* AppDelegate.swift */; };
-		B1705B571A0EBD5400538869 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1705B551A0EBD5400538869 /* Main.storyboard */; };
-		B1B18E4B1A0EC25F00857263 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B18E4A1A0EC25F00857263 /* ContainerViewController.swift */; };
-		B1B18E521A0EC29500857263 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B18E501A0EC29500857263 /* MapViewController.swift */; };
-		B1B18E531A0EC29500857263 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B18E511A0EC29500857263 /* MapViewController.xib */; };
-		B1B18E561A0EC2CA00857263 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B18E541A0EC2CA00857263 /* FeedViewController.swift */; };
-		B1B18E571A0EC2CA00857263 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B18E551A0EC2CA00857263 /* FeedViewController.xib */; };
-		B1B18E5A1A0EC2D500857263 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B18E581A0EC2D500857263 /* PostViewController.swift */; };
-		B1B18E5B1A0EC2D500857263 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B18E591A0EC2D500857263 /* PostViewController.xib */; };
 		B1B6411F1A0F0FDC00CFA4A0 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B6411B1A0F0FDC00CFA4A0 /* Bolts.framework */; };
 		B1B641201A0F0FDC00CFA4A0 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B6411C1A0F0FDC00CFA4A0 /* Parse.framework */; };
 		B1B641211A0F0FDC00CFA4A0 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B6411D1A0F0FDC00CFA4A0 /* ParseFacebookUtils.framework */; };
@@ -37,7 +28,18 @@
 		B1B641341A0F10B400CFA4A0 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B641331A0F10B400CFA4A0 /* StoreKit.framework */; };
 		B1B641361A0F10C100CFA4A0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B641351A0F10C100CFA4A0 /* SystemConfiguration.framework */; };
 		B1B641381A0F121A00CFA4A0 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1B641371A0F121A00CFA4A0 /* FacebookSDK.framework */; };
-		B1F66DAF1A1024F400ECC68B /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F66DAE1A1024F400ECC68B /* LoginViewController.swift */; };
+		B1D12D661A10ABD100D9D456 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D631A10ABD100D9D456 /* AppDelegate.swift */; };
+		B1D12D671A10ABD100D9D456 /* ContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D641A10ABD100D9D456 /* ContainerViewController.swift */; };
+		B1D12D681A10ABD100D9D456 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D651A10ABD100D9D456 /* LoginViewController.swift */; };
+		B1D12D711A10ABE700D9D456 /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D691A10ABE700D9D456 /* FeedCell.xib */; };
+		B1D12D721A10ABE700D9D456 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D6A1A10ABE700D9D456 /* FeedViewController.swift */; };
+		B1D12D731A10ABE700D9D456 /* FeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D6B1A10ABE700D9D456 /* FeedViewController.xib */; };
+		B1D12D741A10ABE700D9D456 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D6C1A10ABE700D9D456 /* Main.storyboard */; };
+		B1D12D751A10ABE700D9D456 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */; };
+		B1D12D761A10ABE700D9D456 /* MapViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */; };
+		B1D12D771A10ABE700D9D456 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */; };
+		B1D12D781A10ABE700D9D456 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D701A10ABE700D9D456 /* PostViewController.xib */; };
+		B1D12D7A1A10B81B00D9D456 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D791A10B81B00D9D456 /* placeholder.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,15 +63,6 @@
 		B1705B3B1A0EBD1400538869 /* RendezvousTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RendezvousTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B1705B401A0EBD1400538869 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B1705B411A0EBD1400538869 /* RendezvousTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RendezvousTests.swift; sourceTree = "<group>"; };
-		B1705B531A0EBD4400538869 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B1705B551A0EBD5400538869 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
-		B1B18E4A1A0EC25F00857263 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
-		B1B18E501A0EC29500857263 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
-		B1B18E511A0EC29500857263 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
-		B1B18E541A0EC2CA00857263 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
-		B1B18E551A0EC2CA00857263 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
-		B1B18E581A0EC2D500857263 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
-		B1B18E591A0EC2D500857263 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		B1B641181A0F0C1100CFA4A0 /* Rendezvous-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Rendezvous-Bridging-Header.h"; sourceTree = "<group>"; };
 		B1B6411B1A0F0FDC00CFA4A0 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 		B1B6411C1A0F0FDC00CFA4A0 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
@@ -86,7 +79,18 @@
 		B1B641331A0F10B400CFA4A0 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		B1B641351A0F10C100CFA4A0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		B1B641371A0F121A00CFA4A0 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
-		B1F66DAE1A1024F400ECC68B /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B1D12D631A10ABD100D9D456 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		B1D12D641A10ABD100D9D456 /* ContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContainerViewController.swift; sourceTree = "<group>"; };
+		B1D12D651A10ABD100D9D456 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		B1D12D691A10ABE700D9D456 /* FeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		B1D12D6A1A10ABE700D9D456 /* FeedViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B1D12D6B1A10ABE700D9D456 /* FeedViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedViewController.xib; sourceTree = "<group>"; };
+		B1D12D6C1A10ABE700D9D456 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapViewController.xib; sourceTree = "<group>"; };
+		B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		B1D12D701A10ABE700D9D456 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
+		B1D12D791A10B81B00D9D456 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,12 +149,12 @@
 		B1705B251A0EBD1400538869 /* Rendezvous */ = {
 			isa = PBXGroup;
 			children = (
+				B1D12D6C1A10ABE700D9D456 /* Main.storyboard */,
+				B1D12D631A10ABD100D9D456 /* AppDelegate.swift */,
+				B1D12D641A10ABD100D9D456 /* ContainerViewController.swift */,
+				B1D12D651A10ABD100D9D456 /* LoginViewController.swift */,
 				B1B641171A0F0BEB00CFA4A0 /* Frameworks */,
 				B1705B591A0EBD6800538869 /* ViewControllers */,
-				B1705B531A0EBD4400538869 /* AppDelegate.swift */,
-				B1F66DAE1A1024F400ECC68B /* LoginViewController.swift */,
-				B1705B551A0EBD5400538869 /* Main.storyboard */,
-				B1B18E4A1A0EC25F00857263 /* ContainerViewController.swift */,
 				B1705B321A0EBD1400538869 /* Images.xcassets */,
 				B1705B341A0EBD1400538869 /* LaunchScreen.xib */,
 				B1705B2A1A0EBD1400538869 /* Rendezvous.xcdatamodeld */,
@@ -162,6 +166,7 @@
 		B1705B261A0EBD1400538869 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B1D12D791A10B81B00D9D456 /* placeholder.png */,
 				B1B641181A0F0C1100CFA4A0 /* Rendezvous-Bridging-Header.h */,
 				B1705B271A0EBD1400538869 /* Info.plist */,
 			);
@@ -188,12 +193,13 @@
 		B1705B591A0EBD6800538869 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1B18E501A0EC29500857263 /* MapViewController.swift */,
-				B1B18E511A0EC29500857263 /* MapViewController.xib */,
-				B1B18E541A0EC2CA00857263 /* FeedViewController.swift */,
-				B1B18E551A0EC2CA00857263 /* FeedViewController.xib */,
-				B1B18E581A0EC2D500857263 /* PostViewController.swift */,
-				B1B18E591A0EC2D500857263 /* PostViewController.xib */,
+				B1D12D691A10ABE700D9D456 /* FeedCell.xib */,
+				B1D12D6A1A10ABE700D9D456 /* FeedViewController.swift */,
+				B1D12D6B1A10ABE700D9D456 /* FeedViewController.xib */,
+				B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */,
+				B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */,
+				B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */,
+				B1D12D701A10ABE700D9D456 /* PostViewController.xib */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -302,12 +308,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1705B571A0EBD5400538869 /* Main.storyboard in Resources */,
-				B1B18E571A0EC2CA00857263 /* FeedViewController.xib in Resources */,
-				B1B18E5B1A0EC2D500857263 /* PostViewController.xib in Resources */,
 				B1705B361A0EBD1400538869 /* LaunchScreen.xib in Resources */,
+				B1D12D761A10ABE700D9D456 /* MapViewController.xib in Resources */,
+				B1D12D7A1A10B81B00D9D456 /* placeholder.png in Resources */,
+				B1D12D741A10ABE700D9D456 /* Main.storyboard in Resources */,
 				B1705B331A0EBD1400538869 /* Images.xcassets in Resources */,
-				B1B18E531A0EC29500857263 /* MapViewController.xib in Resources */,
+				B1D12D731A10ABE700D9D456 /* FeedViewController.xib in Resources */,
+				B1D12D711A10ABE700D9D456 /* FeedCell.xib in Resources */,
+				B1D12D781A10ABE700D9D456 /* PostViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,13 +333,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B1F66DAF1A1024F400ECC68B /* LoginViewController.swift in Sources */,
-				B1B18E5A1A0EC2D500857263 /* PostViewController.swift in Sources */,
-				B1705B541A0EBD4400538869 /* AppDelegate.swift in Sources */,
-				B1B18E4B1A0EC25F00857263 /* ContainerViewController.swift in Sources */,
-				B1B18E561A0EC2CA00857263 /* FeedViewController.swift in Sources */,
+				B1D12D681A10ABD100D9D456 /* LoginViewController.swift in Sources */,
+				B1D12D751A10ABE700D9D456 /* MapViewController.swift in Sources */,
+				B1D12D771A10ABE700D9D456 /* PostViewController.swift in Sources */,
+				B1D12D661A10ABD100D9D456 /* AppDelegate.swift in Sources */,
+				B1D12D721A10ABE700D9D456 /* FeedViewController.swift in Sources */,
+				B1D12D671A10ABD100D9D456 /* ContainerViewController.swift in Sources */,
 				B1705B2C1A0EBD1400538869 /* Rendezvous.xcdatamodeld in Sources */,
-				B1B18E521A0EC29500857263 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,7 +390,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Giles (7LW3F833T8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Connor Giles (7LW3F833T8)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -424,7 +433,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Giles (7LW3F833T8)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Connor Giles (7LW3F833T8)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -448,6 +458,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Giles (7LW3F833T8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Rendezvous",
@@ -470,6 +481,7 @@
 				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Connor Giles (7LW3F833T8)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Rendezvous",

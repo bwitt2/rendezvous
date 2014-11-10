@@ -19,7 +19,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Parse.setApplicationId("Hgj3JBmV3Ep9HzJDK8wC6mCDu6pqrkABrf45Jwh9", clientKey: "N2Y9Iv2PScKzt1QAWIv9Gy48Jk3eNNn98rGKCawj")
         PFFacebookUtils.initializeFacebook()
         
+        
+        //Set up Push Notifications
+        var types: UIUserNotificationType = UIUserNotificationType.Badge |
+            UIUserNotificationType.Alert |
+            UIUserNotificationType.Sound
+        
+        var settings: UIUserNotificationSettings = UIUserNotificationSettings( forTypes: types, categories: nil )
+        
+        application.registerUserNotificationSettings( settings )
+        application.registerForRemoteNotifications()
+        
         return true
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData){
+        
+        PFPush.storeDeviceToken(deviceToken)
+        PFPush.subscribeToChannelInBackground("")
+        
+    }
+    
+    func application(application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: NSError){
+        NSLog("Failed to register for push, %@", error)
     }
     
     func application(application: UIApplication,

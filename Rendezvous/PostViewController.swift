@@ -53,8 +53,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     }
     
     
-    @IBAction func submitBtn(sender: UIButton) {
-        
+    @IBAction func saveBtn(sender: AnyObject) {
         //Close Keyboard
         self.view.endEditing(true)
         

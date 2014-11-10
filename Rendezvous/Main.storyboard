@@ -23,7 +23,7 @@
                                 </connections>
                             </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.43137258291244507" green="0.0" blue="0.9490196704864502" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" red="0.82352948188781738" green="0.95294123888015747" blue="0.7882353663444519" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>
                             <constraint firstItem="Dlk-aB-WAQ" firstAttribute="top" secondItem="27L-52-pSi" secondAttribute="top" id="4pd-LY-s0j"/>
                             <constraint firstItem="Dlk-aB-WAQ" firstAttribute="bottom" secondItem="89D-gb-k0u" secondAttribute="top" id="o2F-ij-QFA"/>
@@ -32,6 +32,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="u6k-sg-Y87"/>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="scrollView" destination="Dlk-aB-WAQ" id="P9X-0c-NtJ"/>
                     </connections>
@@ -69,7 +70,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="Zgs-YN-gOq" kind="custom" identifier="afterLogin" id="2fS-QC-fGU"/>
+                        <segue destination="Zgs-YN-gOq" kind="show" identifier="afterLogin" id="2fS-QC-fGU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yN3-ZN-5DX" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -8,16 +8,30 @@
 
 import UIKit
 
+class FeedCell: UITableViewCell{
+    
+    @IBOutlet weak var captionLbl: UILabel!
+    @IBOutlet weak var locationLbl: UILabel!
+    @IBOutlet weak var photoLbl: UIImageView!
+    
+}
 
 class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     var container: ContainerViewController!
     //var posts: PFObject = PFObject(className: "Posts")
     
+    var fbID: String!
+    
     @IBOutlet weak var feedTable: UITableView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var nib = UINib(nibName: "FeedCell", bundle: nil)
+        
+        feedTable.registerNib(nib, forCellReuseIdentifier: "feedCell")
+        
         
     }
     override func didReceiveMemoryWarning() {
@@ -34,32 +48,35 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         container.loadData()
     }
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
-        let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "point")
+        //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "point")
+        //let cell: FeedCellController = FeedCellController(style: UITableViewCellStyle.Default, reuseIdentifier: "point")
         
-        //Get
+        let cell: FeedCell = self.feedTable.dequeueReusableCellWithIdentifier("feedCell") as FeedCell
+        
+        //Get info from Parse
         let point: PFObject = container.feedData.objectAtIndex(indexPath.row) as PFObject
         let loc: PFGeoPoint = point.objectForKey("location") as PFGeoPoint
+        let caption: String = point.objectForKey("caption") as String
         
-        //Find Username
-        /*let userQuery: PFQuery = PFQuery(className: "User")
-        userQuery.whereKey("objectId", equalTo: point.objectForKey("user").objectId)
-        //userQuery.includeKey("user")
+        cell.photoLbl.layer.cornerRadius = cell.photoLbl.frame.width/2
         
-        var userName: String!
-
+        /*  TRYING TO GET PROFILE PICTURES FROM GRAPH
+        FBRequestConnection.startForMeWithCompletionHandler(){
+            (connection: FBRequestConnection!, result: AnyObject!, error: NSError!)->Void in
+            if error != nil{
+                self.fbID = result.objectForKey("id") as String
+            }
+        }
         
-        userQuery.findObjectsInBackgroundWithBlock({
-            (objects: [AnyObject]!, error: NSError!)->Void in
-            println(objects.count)
-            /*if error == nil && objects.count>0 {
-                let user: PFObject = objects[0] as PFObject
-                userName = user.objectForKey("username") as String
-            }*/
-        })*/
+        var profilePictureURL: NSURL = NSURL(string: "https://graph.facebook.com/\(fbID)/picture?type=large")!
+        var urlRequest: NSURLRequest = NSURLRequest(URL: profilePictureURL, cachePolicy: NSURLRequestCachePolicy(rawValue: UInt(0))!, timeoutInterval: 10.0)
         
-        //println(point.objectForKey("user").objectId)
+        NSURLConnection(request: urlRequest, delegate: self)
+        */
         
-        cell.textLabel.text = "\(loc.latitude), \(loc.longitude)"
+        //Set labels
+        cell.captionLbl.text = caption
+        cell.locationLbl.text = "\(loc.latitude), \(loc.longitude)"
         
         return cell
     }
