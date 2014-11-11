@@ -10,17 +10,22 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    @IBOutlet weak var FBLoginButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
     }
     
+    
     override func viewDidAppear(animated: Bool) {
         
-        var currentUser = PFUser.currentUser()
+        /*var currentUser = PFUser.currentUser()
         if (currentUser != nil && PFFacebookUtils.isLinkedWithUser(currentUser)) {
             goToApp()
-        }
+        }*/
+        
+        FBLoginButton.layer.cornerRadius = 4;
     }
     
     @IBAction func facebookBtn(sender: AnyObject) {
@@ -49,10 +54,12 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool){
         
-        var currentUser = PFUser.currentUser()
+        //uncomment to remmeber user
+        
+       /* var currentUser = PFUser.currentUser()
         if (currentUser != nil && PFFacebookUtils.isLinkedWithUser(currentUser)) {
             goToApp()
-        }
+        }*/
         
         
     }
