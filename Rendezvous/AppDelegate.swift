@@ -33,7 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         //set up for Google Maps API
         
-        //GMSServices.provideAPIKey("AIzaSyBodzRxtGixKP-Ox9Ut9_KLG6EX0kmy5vo")
+        GMSServices.provideAPIKey("AIzaSyBodzRxtGixKP-Ox9Ut9_KLG6EX0kmy5vo")
         
         
         
