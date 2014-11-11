@@ -20,10 +20,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidAppear(animated: Bool) {
         
-        /*var currentUser = PFUser.currentUser()
+        var currentUser = PFUser.currentUser()
         if (currentUser != nil && PFFacebookUtils.isLinkedWithUser(currentUser)) {
             goToApp()
-        }*/
+        }
         
         FBLoginButton.layer.cornerRadius = 4;
     }
@@ -56,7 +56,7 @@ class LoginViewController: UIViewController {
         
         //uncomment to remmeber user
         
-       /* var currentUser = PFUser.currentUser()
+        /*var currentUser = PFUser.currentUser()
         if (currentUser != nil && PFFacebookUtils.isLinkedWithUser(currentUser)) {
             goToApp()
         }*/

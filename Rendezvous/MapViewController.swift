@@ -7,37 +7,47 @@
 //
 
 import UIKit
-import MapKit
-
+// add this below GMSMapViewDelegate
 class MapViewController: UIViewController {
     
     //Holds managing container
     var container: ContainerViewController!
+    //var mapView: GMSMapView?
     
-    @IBOutlet weak var mapView: MKMapView!
+    //@IBOutlet weak var mapView: GMSMapView!
     
     override func viewDidLoad() {
-        super.viewDidLoad()
         
+        super.viewDidLoad()
+        //test code to laod the map view
+        /*var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 51.6, longitude: 17.2)
+        //var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 6, bearing: 0, viewingAngle: 0)
+        if let map = mapView? {
+            map.myLocationEnabled = true
+            //map.camera = camera
+            map.delegate = self
+            
+            self.view.addSubview(mapView!)
+        }
+        */
     }
     
     func postPoints(){
         for point in container.locations{
-            let location = CLLocationCoordinate2D(
+            /*let location = CLLocationCoordinate2D(
                 latitude: point.latitude,
                 longitude: point.longitude
-            )
+            )*/
             
-            let annotation = MKPointAnnotation()
-            annotation.setCoordinate(location)
-            //annotation.title = "Big Ben"
-            //annotation.subtitle = "London"
-            mapView.addAnnotation(annotation)
+            //let annotation = MKPointAnnotation()
+            /*annotation.setCoordinate(location)
+            annotation.title = "Big Ben"
+            annotation.subtitle = "London"*/
+            //mapView.addAnnotation(annotation)
             
         }
         
     }
-    
     
     
     @IBAction func postEventBtn(sender: AnyObject) {

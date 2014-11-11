@@ -8,8 +8,9 @@
 
 import UIKit
 
+
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var window: UIWindow?
     
@@ -29,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         application.registerUserNotificationSettings( settings )
         application.registerForRemoteNotifications()
+        
+        //set up for Google Maps API
+        
+        //GMSServices.provideAPIKey("AIzaSyBodzRxtGixKP-Ox9Ut9_KLG6EX0kmy5vo")
+        
+        
         
         return true
     }

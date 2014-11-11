@@ -6,23 +6,14 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Rendezvous" customModuleProvider="target">
             <connections>
-                <outlet property="mapView" destination="Lac-oy-FlL" id="ySb-fT-MEF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="GMSMapView">
             <rect key="frame" x="0.0" y="64" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Lac-oy-FlL">
-                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
-                    <gestureRecognizers/>
-                    <connections>
-                        <outletCollection property="gestureRecognizers" destination="cLd-Yn-0wq" appends="YES" id="AWl-A3-gdA"/>
-                        <outletCollection property="gestureRecognizers" destination="zYu-5L-Hzp" appends="YES" id="IFO-1a-Rz3"/>
-                    </connections>
-                </mapView>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tA-2U-a0y">
                     <rect key="frame" x="0.0" y="21" width="600" height="44"/>
                     <color key="barTintColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -48,14 +39,11 @@
                 </navigationBar>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+            <accessibility key="accessibilityConfiguration" label=""/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="Lac-oy-FlL" secondAttribute="bottom" id="Bza-59-RCz"/>
                 <constraint firstItem="6tA-2U-a0y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Elu-HD-tPD"/>
                 <constraint firstItem="6tA-2U-a0y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="21" id="GA0-5l-sVc"/>
-                <constraint firstItem="Lac-oy-FlL" firstAttribute="top" secondItem="6tA-2U-a0y" secondAttribute="bottom" id="HJy-7s-ByJ"/>
                 <constraint firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="p0b-tW-vbX"/>
-                <constraint firstItem="Lac-oy-FlL" firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="uuk-dR-vaI"/>
-                <constraint firstItem="Lac-oy-FlL" firstAttribute="leading" secondItem="6tA-2U-a0y" secondAttribute="leading" id="vva-k1-UUX"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
         </view>
