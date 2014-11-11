@@ -8,26 +8,18 @@
 
 import UIKit
 // add this below GMSMapViewDelegate
-class MapViewController: UIViewController, GMSMapViewDelegate {
+class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate{
     
     //Holds managing container
     var container: ContainerViewController!
-    @IBOutlet weak var mapView: GMSMapView!
-    //@IBOutlet weak var mapView: GMSMapView!
+    @IBOutlet weak var mapView: GMSMapView?
+    var firstLocationUpdate: Bool?
+    let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //test code to laod the map view
-        //var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 51.6, longitude: 17.2)
-        //var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 6, bearing: 0, viewingAngle: 0)
-        //if let map = mapView {
-        //map.myLocationEnabled = true
-            //map.camera = camera
-        mapView.delegate = self
-            
-        //self.view.addSubview(mapView!)
-        //}
+        startMaps()
         
     }
     
@@ -77,5 +69,26 @@ class MapViewController: UIViewController, GMSMapViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    func startMaps() {
+        
+        locationManager.delegate = self;
+        locationManager.distanceFilter = kCLDistanceFilterNone;
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest;
+        
+        locationManager.startUpdatingLocation()
+        locationManager.requestWhenInUseAuthorization()
+        
+        let location: CLLocation = locationManager.location
+        
+        var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 10, bearing: 0, viewingAngle: 0)
+        
+        if let map = mapView? {
+            map.myLocationEnabled = true
+            map.camera = camera
+            map.delegate = self
+        }
+    }
 
 }
