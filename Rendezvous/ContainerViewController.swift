@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ContainerViewController: UIViewController, UIScrollViewDelegate {
+class ContainerViewController: UIViewController, UIScrollViewDelegate, GMSMapViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView?
     
@@ -17,7 +17,6 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate {
     var postView: PostViewController!
     
     var feedData: NSMutableArray = NSMutableArray()
-    var locations: NSMutableArray = NSMutableArray()
     
     override func viewDidAppear(animated: Bool) {
         if(PFUser.currentUser() == nil){
@@ -103,7 +102,6 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate {
                 for object in objects{
                     //NSLog("Loaded: %@", object.objectId)  //FOR TESTING
                     self.feedData.addObject(object)
-                    self.locations.addObject(object.objectForKey("location")!)
                 }
                 
                 //Reverse array
@@ -113,7 +111,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate {
                 println("Loaded \(self.feedData.count) points")
                 
                 self.feedView.feedTable.reloadData()
-                self.mapView.postPoints()
+                self.mapView.addMarkers()
                 
             }
             else{

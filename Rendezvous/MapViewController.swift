@@ -20,23 +20,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         
         super.viewDidLoad()
         startMaps()
-        
-    }
-    
-    func postPoints(){
-        for point in container.locations{
-            /*let location = CLLocationCoordinate2D(
-            latitude: point.latitude,
-            longitude: point.longitude
-            )*/
-            
-            //let annotation = MKPointAnnotation()
-            /*annotation.setCoordinate(location)
-            annotation.title = "Big Ben"
-            annotation.subtitle = "London"*/
-            //mapView.addAnnotation(annotation)
-            
-        }
+        //addMarkers()
         
     }
     
@@ -82,13 +66,37 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         let location: CLLocation = locationManager.location
         
         var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 10, bearing: 0, viewingAngle: 0)
+        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 12, bearing: 0, viewingAngle: 0)
         
         if let map = mapView? {
             map.myLocationEnabled = true
             map.camera = camera
             map.delegate = self
+            addMarkers()
         }
+    }
+    
+    
+    func addMarkers() {
+        
+        /*var position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude, longitude: -30)
+        var marker: GMSMarker = GMSMarker(position: position)
+        marker.title = "Hello World"
+        marker.map = mapView*/
+        
+        var markers: NSMutableArray = NSMutableArray()
+        
+        for object in container.feedData as NSMutableArray{
+            let point:PFObject = object as PFObject
+            let location: PFGeoPoint = point.objectForKey("location") as PFGeoPoint
+            var position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.latitude, longitude: location.longitude)
+            let marker: GMSMarker = GMSMarker(position: position)
+            marker.map = mapView
+            marker.title = point.objectForKey("caption") as String
+            markers.addObject(marker)
+            
+        }
+
     }
     
 }
