@@ -2,9 +2,7 @@
 //  FeedViewController.swift
 //  Rendezvous
 //
-//  Created by Connor Giles on 2014-11-08.
-//  Copyright (c) 2014 Connor Giles. All rights reserved.
-//
+
 
 import UIKit
 
