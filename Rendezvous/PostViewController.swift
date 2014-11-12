@@ -85,8 +85,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     
     //Close keyboard on return
     func textFieldShouldReturn(textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
-        //self.view.endEditing(true)
+        self.view.endEditing(true)
         return true
     }
     

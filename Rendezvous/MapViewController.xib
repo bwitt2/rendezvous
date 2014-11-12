@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Rendezvous" customModuleProvider="target">
@@ -17,7 +18,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tA-2U-a0y">
-                    <rect key="frame" x="0.0" y="21" width="600" height="44"/>
+                    <rect key="frame" x="0.0" y="12" width="600" height="44"/>
                     <color key="barTintColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     <textAttributes key="titleTextAttributes">
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -40,39 +41,48 @@
                     </items>
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Nt-4T-MDi" customClass="GMSMapView">
-                    <rect key="frame" x="0.0" y="65" width="600" height="535"/>
-                    <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where's your next rendezvous?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K45-mc-SDr">
-                            <rect key="frame" x="25" y="19" width="550" height="29"/>
-                            <color key="backgroundColor" red="0.95014089890215347" green="0.97344258164084374" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="29" id="snF-qb-vNl"/>
-                            </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </textField>
-                    </subviews>
+                    <rect key="frame" x="0.0" y="99" width="600" height="535"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstItem="K45-mc-SDr" firstAttribute="top" secondItem="2Nt-4T-MDi" secondAttribute="top" constant="19" id="2jN-Zl-m5G"/>
-                        <constraint firstItem="K45-mc-SDr" firstAttribute="centerX" secondItem="2Nt-4T-MDi" secondAttribute="centerX" id="4o3-Gd-dhf"/>
-                        <constraint firstItem="K45-mc-SDr" firstAttribute="leading" secondItem="2Nt-4T-MDi" secondAttribute="leading" constant="25" id="rGZ-c2-KzS"/>
-                    </constraints>
                 </view>
+                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where's your next rendezvous?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K45-mc-SDr">
+                    <rect key="frame" x="8" y="62" width="524" height="29"/>
+                    <color key="backgroundColor" red="0.95014089890215347" green="0.97344258164084374" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="2Nt-4T-MDi" id="Uol-A6-V7V"/>
+                    </connections>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oc7-IN-TgW">
+                    <rect key="frame" x="540" y="62" width="45" height="30"/>
+                    <state key="normal" title="@Here">
+                        <color key="titleColor" red="0.98202517892502539" green="1" blue="0.98209545355214811" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="currentLocationBtn:" destination="-1" eventType="touchUpInside" id="vG0-Pr-swF"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
             <accessibility key="accessibilityConfiguration" label=""/>
             <constraints>
                 <constraint firstItem="6tA-2U-a0y" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Elu-HD-tPD"/>
-                <constraint firstItem="6tA-2U-a0y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="21" id="GA0-5l-sVc"/>
+                <constraint firstItem="6tA-2U-a0y" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="12" id="GA0-5l-sVc"/>
+                <constraint firstItem="K45-mc-SDr" firstAttribute="top" secondItem="6tA-2U-a0y" secondAttribute="bottom" constant="6" id="JGP-4A-g37"/>
+                <constraint firstAttribute="trailing" secondItem="K45-mc-SDr" secondAttribute="trailing" constant="68" id="M01-1d-cbe"/>
                 <constraint firstItem="2Nt-4T-MDi" firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="OP9-IK-Jhw"/>
-                <constraint firstItem="2Nt-4T-MDi" firstAttribute="top" secondItem="6tA-2U-a0y" secondAttribute="bottom" id="b6d-bw-Ted"/>
+                <constraint firstItem="oc7-IN-TgW" firstAttribute="top" secondItem="K45-mc-SDr" secondAttribute="top" id="XGa-D3-GqK"/>
+                <constraint firstItem="oc7-IN-TgW" firstAttribute="leading" secondItem="K45-mc-SDr" secondAttribute="trailing" constant="8" id="YnN-us-iSa"/>
+                <constraint firstItem="2Nt-4T-MDi" firstAttribute="top" secondItem="6tA-2U-a0y" secondAttribute="bottom" constant="43" id="b6d-bw-Ted"/>
                 <constraint firstItem="2Nt-4T-MDi" firstAttribute="leading" secondItem="6tA-2U-a0y" secondAttribute="leading" id="bdU-eR-02J"/>
-                <constraint firstAttribute="bottom" secondItem="2Nt-4T-MDi" secondAttribute="bottom" id="fXJ-ar-HqY"/>
+                <constraint firstAttribute="bottom" secondItem="2Nt-4T-MDi" secondAttribute="bottom" constant="-34" id="fXJ-ar-HqY"/>
+                <constraint firstItem="K45-mc-SDr" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leadingMargin" id="mmG-Gl-ds6"/>
+                <constraint firstItem="2Nt-4T-MDi" firstAttribute="top" secondItem="K45-mc-SDr" secondAttribute="bottom" constant="8" symbolic="YES" id="nWY-qf-Wqq"/>
                 <constraint firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="p0b-tW-vbX"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
-            <point key="canvasLocation" x="351" y="272.75"/>
+            <point key="canvasLocation" x="182" y="245"/>
         </view>
         <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="cLd-Yn-0wq">
             <rectEdge key="edges" left="YES"/>
