@@ -6,6 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MapViewController" customModule="Rendezvous" customModuleProvider="target">
             <connections>
+                <outlet property="addressInputField" destination="K45-mc-SDr" id="fdS-G1-z2Y"/>
                 <outlet property="mapView" destination="2Nt-4T-MDi" id="PvO-d4-b05"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -40,7 +41,23 @@
                 </navigationBar>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Nt-4T-MDi" customClass="GMSMapView">
                     <rect key="frame" x="0.0" y="65" width="600" height="535"/>
+                    <subviews>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Where's your next rendezvous?" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="K45-mc-SDr">
+                            <rect key="frame" x="25" y="19" width="550" height="29"/>
+                            <color key="backgroundColor" red="0.95014089890215347" green="0.97344258164084374" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="29" id="snF-qb-vNl"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="K45-mc-SDr" firstAttribute="top" secondItem="2Nt-4T-MDi" secondAttribute="top" constant="19" id="2jN-Zl-m5G"/>
+                        <constraint firstItem="K45-mc-SDr" firstAttribute="centerX" secondItem="2Nt-4T-MDi" secondAttribute="centerX" id="4o3-Gd-dhf"/>
+                        <constraint firstItem="K45-mc-SDr" firstAttribute="leading" secondItem="2Nt-4T-MDi" secondAttribute="leading" constant="25" id="rGZ-c2-KzS"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -55,6 +72,7 @@
                 <constraint firstAttribute="trailing" secondItem="6tA-2U-a0y" secondAttribute="trailing" id="p0b-tW-vbX"/>
             </constraints>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
+            <point key="canvasLocation" x="351" y="272.75"/>
         </view>
         <screenEdgePanGestureRecognizer minimumNumberOfTouches="1" id="cLd-Yn-0wq">
             <rectEdge key="edges" left="YES"/>

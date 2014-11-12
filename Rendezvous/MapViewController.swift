@@ -13,14 +13,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     //Holds managing container
     var container: ContainerViewController!
     @IBOutlet weak var mapView: GMSMapView?
+    @IBOutlet weak var addressInputField: UITextField!
+    
     var firstLocationUpdate: Bool?
     let locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        //add the text field as a subview of the mapview
+        mapView?.addSubview(addressInputField)
+        addressInputField.userInteractionEnabled = true
+        //for some reason, i cant interact with the text field
         startMaps()
-        //addMarkers()
+        addMarkers()
         
     }
     
@@ -63,10 +70,22 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         locationManager.startUpdatingLocation()
         locationManager.requestWhenInUseAuthorization()
         
-        let location: CLLocation = locationManager.location
+        var cameraZoom: float_t = 5.0
+        var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 0, longitude: 0)
         
-        var target: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: 12, bearing: 0, viewingAngle: 0)
+        if(locationManager.location != nil){
+            
+            var location: CLLocation = locationManager.location
+            target = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            cameraZoom = 4
+            
+        }else{
+            
+            target = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+            cameraZoom = 12
+            
+        }
+        var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: cameraZoom, bearing: 0, viewingAngle: 0)
         
         if let map = mapView? {
             map.myLocationEnabled = true
@@ -78,11 +97,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     
     func addMarkers() {
-        
-        /*var position: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude, longitude: -30)
-        var marker: GMSMarker = GMSMarker(position: position)
-        marker.title = "Hello World"
-        marker.map = mapView*/
         
         var markers: NSMutableArray = NSMutableArray()
         
