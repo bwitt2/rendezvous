@@ -53,6 +53,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         locationManager.startUpdatingLocation()
         startMaps()
         addMarkers()
+        addCurrentLocationIcon()
         
     }
     
@@ -113,6 +114,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     */
     
     func startMaps() {
+        
         locationManager.delegate = self;
         locationManager.distanceFilter = kCLDistanceFilterNone;
         locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -138,6 +140,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: cameraZoom, bearing: 0, viewingAngle: 0)
         
         if let map = mapView? {
+            map.settings.myLocationButton = true
+            //map.settings.myLocationButton.descrip
             map.myLocationEnabled = true
             map.camera = camera
             map.delegate = self
@@ -161,6 +165,21 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             
         }
 
+    }
+    
+    func addCurrentLocationIcon(){
+    
+        var circleCenter: CLLocationCoordinate2D  = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude)
+        var circleGlow: GMSCircle = GMSCircle(position: circleCenter, radius: 3000)
+        circleGlow.fillColor = UIColor(red:0.25, green:0, blue:0.25, alpha:0.3)
+        circleGlow.strokeColor = UIColor.blackColor()
+        circleGlow.strokeWidth = 0
+        circleGlow.map = mapView
+        
+        var circleDot:GMSCircle = GMSCircle(position: circleCenter, radius: 200)
+        circleDot.fillColor = UIColor.blueColor()
+        circleDot.map = mapView
+        //circleDot.tappable
     }
     
 }
