@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5BF192831A16EB700005A274 /* CurrentLocationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */; };
+		5BF192851A1704CE0005A274 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF192841A1704CE0005A274 /* Geocoder.swift */; };
 		5BFF43A71A11957E00648937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43A61A11957E00648937 /* AVFoundation.framework */; };
 		5BFF43A91A11959400648937 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43A81A11959400648937 /* CoreData.framework */; };
 		5BFF43AB1A1195A700648937 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43AA1A1195A700648937 /* CoreText.framework */; };
@@ -64,6 +65,7 @@
 
 /* Begin PBXFileReference section */
 		5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationIcon.swift; sourceTree = "<group>"; };
+		5BF192841A1704CE0005A274 /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		5BFF43A61A11957E00648937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5BFF43A81A11959400648937 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5BFF43AA1A1195A700648937 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -229,6 +231,7 @@
 				B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */,
 				B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */,
 				B1D12D701A10ABE700D9D456 /* PostViewController.xib */,
+				5BF192841A1704CE0005A274 /* Geocoder.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				B1D12D661A10ABD100D9D456 /* AppDelegate.swift in Sources */,
 				B1D12D721A10ABE700D9D456 /* FeedViewController.swift in Sources */,
 				B1D12D671A10ABD100D9D456 /* ContainerViewController.swift in Sources */,
+				5BF192851A1704CE0005A274 /* Geocoder.swift in Sources */,
 				B1705B2C1A0EBD1400538869 /* Rendezvous.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

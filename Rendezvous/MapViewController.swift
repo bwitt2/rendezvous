@@ -20,6 +20,8 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     var firstLocationUpdate: Bool?
     var locationManager = CLLocationManager()
     
+    var geocoder: Geocoder = Geocoder()
+    
     var currentLocationIcon: CurrentLocationIcon!
     
     @IBAction func currentLocationBtn(sender: AnyObject) {
@@ -84,12 +86,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        geocoder.getCoordinates(textField.text)
         println(textField.text)
         textField.text = ""
         textField.placeholder = "Where's your next rendezvous?"
         
         if(locationManager.location != nil){
-            //var location: CLLocation = locationManager.location
             print("lat: ")
             print(locationManager.location.coordinate.latitude)
             print("  lon: ")
@@ -98,7 +100,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             println("Current location not available.")
         }
 
-        
         return true
     }
     
@@ -168,6 +169,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         var coor: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
         var cameraPos: GMSCameraPosition = GMSCameraPosition(target: coor,  zoom: 5, bearing: 0, viewingAngle: 0)
         mapView?.animateToCameraPosition(cameraPos)
-        currentLocationIcon.update(coor)
+        currentLocationIcon.updateLocation(coor)
+        //currentLocationIcon.updateRadius()
     }
 }

@@ -19,8 +19,8 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, GMSMapVie
     override func viewDidAppear(animated: Bool) {
         if(PFUser.currentUser() == nil){
             var user: PFUser = PFUser()
-            user.username = "connor"
-            user.password = "giles"
+            //user.username = "connor"
+            //user.password = "giles"
             
             //Sign up for user
             /*user.signUpInBackgroundWithBlock({

@@ -25,8 +25,12 @@ class CurrentLocationIcon{
         circle.map = mapView
     }
     
-    func update(location: CLLocationCoordinate2D){
+    func updateLocation(location: CLLocationCoordinate2D){
         circle.position = location
+    }
+    
+    func updateRadius(radius: CLLocationDistance){
+        circle.radius = radius
     }
     
 }
