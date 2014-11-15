@@ -18,7 +18,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     @IBOutlet weak var addressInputField: UITextField!
     
     var firstLocationUpdate: Bool?
-    let locationManager = CLLocationManager()
+    var locationManager = CLLocationManager()
+    
+    var geocoder: Geocoder = Geocoder()
+    
+    var currentLocationIcon: CurrentLocationIcon!
     
     @IBAction func currentLocationBtn(sender: AnyObject) {
         
@@ -32,6 +36,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             println("Current location no available.")
         }
         
+        mapView?.animateToZoom(20)
     }
     
     
@@ -78,14 +83,15 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         container.scrollView!.scrollRectToVisible(container.feedView.view.frame, animated: true)
     }
     
+    
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
+        geocoder.getCoordinates(textField.text)
         println(textField.text)
         textField.text = ""
         textField.placeholder = "Where's your next rendezvous?"
         
         if(locationManager.location != nil){
-            //var location: CLLocation = locationManager.location
             print("lat: ")
             print(locationManager.location.coordinate.latitude)
             print("  lon: ")
@@ -94,7 +100,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             println("Current location not available.")
         }
 
-        
         return true
     }
     
@@ -102,16 +107,6 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         //does not recognize a touch if the map is what is being touched
         self.view.endEditing(true)
     }
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
-    }
-    */
     
     func startMaps() {
         
@@ -129,20 +124,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             
             var location: CLLocation = locationManager.location
             target = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
-            cameraZoom = 12
+            cameraZoom = 3
             
         }else{
             
             target = CLLocationCoordinate2D(latitude: 0, longitude: 0)
-            cameraZoom = 4
+            cameraZoom = 3
             
         }
         var camera: GMSCameraPosition = GMSCameraPosition(target: target, zoom: cameraZoom, bearing: 0, viewingAngle: 0)
         
         if let map = mapView? {
             map.settings.myLocationButton = true
-            //map.settings.myLocationButton.descrip
-            map.myLocationEnabled = true
             map.camera = camera
             map.delegate = self
             addMarkers()
@@ -166,20 +159,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         }
 
     }
-    
+
     func addCurrentLocationIcon(){
-    
-        var circleCenter: CLLocationCoordinate2D  = CLLocationCoordinate2DMake(locationManager.location.coordinate.latitude, locationManager.location.coordinate.longitude)
-        var circleGlow: GMSCircle = GMSCircle(position: circleCenter, radius: 3000)
-        circleGlow.fillColor = UIColor(red:0.25, green:0, blue:0.25, alpha:0.3)
-        circleGlow.strokeColor = UIColor.blackColor()
-        circleGlow.strokeWidth = 0
-        circleGlow.map = mapView
-        
-        var circleDot:GMSCircle = GMSCircle(position: circleCenter, radius: 200)
-        circleDot.fillColor = UIColor.blueColor()
-        circleDot.map = mapView
-        //circleDot.tappable
+        var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
+            currentLocationIcon = CurrentLocationIcon(mapView: mapView, location: location)
     }
     
+    func locationManager(manager: CLLocationManager,  didUpdateLocations locations: NSArray) -> Void {
+        var coor: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
+        var cameraPos: GMSCameraPosition = GMSCameraPosition(target: coor,  zoom: 5, bearing: 0, viewingAngle: 0)
+        mapView?.animateToCameraPosition(cameraPos)
+        currentLocationIcon.updateLocation(coor)
+        //currentLocationIcon.updateRadius()
+    }
 }
