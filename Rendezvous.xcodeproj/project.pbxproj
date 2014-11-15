@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5BF192831A16EB700005A274 /* CurrentLocationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */; };
 		5BFF43A71A11957E00648937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43A61A11957E00648937 /* AVFoundation.framework */; };
 		5BFF43A91A11959400648937 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43A81A11959400648937 /* CoreData.framework */; };
 		5BFF43AB1A1195A700648937 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43AA1A1195A700648937 /* CoreText.framework */; };
@@ -62,6 +63,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationIcon.swift; sourceTree = "<group>"; };
 		5BFF43A61A11957E00648937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		5BFF43A81A11959400648937 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		5BFF43AA1A1195A700648937 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
@@ -223,6 +225,7 @@
 				B1D12D6A1A10ABE700D9D456 /* FeedViewController.swift */,
 				B1D12D6B1A10ABE700D9D456 /* FeedViewController.xib */,
 				B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */,
+				5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */,
 				B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */,
 				B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */,
 				B1D12D701A10ABE700D9D456 /* PostViewController.xib */,
@@ -404,6 +407,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B1D12D681A10ABD100D9D456 /* LoginViewController.swift in Sources */,
+				5BF192831A16EB700005A274 /* CurrentLocationIcon.swift in Sources */,
 				B1D12D751A10ABE700D9D456 /* MapViewController.swift in Sources */,
 				B1D12D771A10ABE700D9D456 /* PostViewController.swift in Sources */,
 				B1D12D661A10ABD100D9D456 /* AppDelegate.swift in Sources */,

@@ -91,6 +91,8 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         addedTime.text = "\(Int(timeStepVal.value)*5) min"
     }
 
+    
+    
     /*
     // MARK: - Navigation
 
