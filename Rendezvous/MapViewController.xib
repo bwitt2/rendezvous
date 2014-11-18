@@ -46,6 +46,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                     <connections>
+                        <action selector="editingChanged:" destination="-1" eventType="editingChanged" id="uE4-ES-ga1"/>
                         <outlet property="delegate" destination="2Nt-4T-MDi" id="Uol-A6-V7V"/>
                     </connections>
                 </textField>

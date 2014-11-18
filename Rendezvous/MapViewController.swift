@@ -20,45 +20,27 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     var firstLocationUpdate: Bool?
     var locationManager = CLLocationManager()
     
+    var placesObject: GooglePlacesAutoComplete = GooglePlacesAutoComplete()
+    
     var geocoder: Geocoder = Geocoder()
     
     var currentLocationIcon: CurrentLocationIcon!
     
-    @IBAction func currentLocationBtn(sender: AnyObject) {
-        
-        if(locationManager.location != nil){
-            //var location: CLLocation = locationManager.location
-            print("lat: ")
-            print(locationManager.location.coordinate.latitude)
-            print("  lon: ")
-            println(locationManager.location.coordinate.longitude)
-        }else{
-            println("Current location no available.")
-        }
-        
-        mapView?.animateToZoom(20)
+    @IBAction func editingChanged(sender: AnyObject) {
+        placesObject.search(addressInputField.text)
     }
-    
-    
-    /*override optional func locationManager(_manager: CLLocationManager!,didUpdateLocations locations: [AnyObject]!){
-        print("+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++")
-        print("new loc: ")
-        println(_manager.location)
-        print("new array loc:")
-        println(locations[locations.count-1])
-    }*/
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
         self.addressInputField.delegate = self;
-        //add the text field as a subview of the mapview
-        //mapView?.addSubview(addressInputField)
         addressInputField.userInteractionEnabled = true
         locationManager.startUpdatingLocation()
         startMaps()
         addMarkers()
         addCurrentLocationIcon()
+
         
     }
     
@@ -161,15 +143,18 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     }
 
     func addCurrentLocationIcon(){
+        if(locationManager.location != nil){
         var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
             currentLocationIcon = CurrentLocationIcon(mapView: mapView, location: location)
+        }else{
+            println("Current Location not available!")
+        }
     }
     
     func locationManager(manager: CLLocationManager,  didUpdateLocations locations: NSArray) -> Void {
         var coor: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
-        var cameraPos: GMSCameraPosition = GMSCameraPosition(target: coor,  zoom: 5, bearing: 0, viewingAngle: 0)
-        mapView?.animateToCameraPosition(cameraPos)
         currentLocationIcon.updateLocation(coor)
-        //currentLocationIcon.updateRadius()
+        //when the icon changes location we need to make it animate, not redraw at that location
+        
     }
 }
