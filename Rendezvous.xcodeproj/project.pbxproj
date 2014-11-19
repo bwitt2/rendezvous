@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5B522C3F1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B522C3E1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift */; };
 		5BF192831A16EB700005A274 /* CurrentLocationIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */; };
 		5BF192851A1704CE0005A274 /* Geocoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF192841A1704CE0005A274 /* Geocoder.swift */; };
 		5BFF43A71A11957E00648937 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43A61A11957E00648937 /* AVFoundation.framework */; };
@@ -64,6 +65,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5B522C3E1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GooglePlacesAutoComplete.swift; sourceTree = "<group>"; };
 		5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CurrentLocationIcon.swift; sourceTree = "<group>"; };
 		5BF192841A1704CE0005A274 /* Geocoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geocoder.swift; sourceTree = "<group>"; };
 		5BFF43A61A11957E00648937 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -158,6 +160,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5B522C4B1A1C132300EBAC6D /* FeedView */ = {
+			isa = PBXGroup;
+			children = (
+				B1D12D691A10ABE700D9D456 /* FeedCell.xib */,
+				B1D12D6A1A10ABE700D9D456 /* FeedViewController.swift */,
+				B1D12D6B1A10ABE700D9D456 /* FeedViewController.xib */,
+			);
+			name = FeedView;
+			sourceTree = "<group>";
+		};
+		5B522C4C1A1C133C00EBAC6D /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */,
+				5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */,
+				5B522C3E1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift */,
+				B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */,
+				5BF192841A1704CE0005A274 /* Geocoder.swift */,
+			);
+			name = MapView;
+			sourceTree = "<group>";
+		};
+		5B522C4D1A1C134500EBAC6D /* PostView */ = {
+			isa = PBXGroup;
+			children = (
+				B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */,
+				B1D12D701A10ABE700D9D456 /* PostViewController.xib */,
+			);
+			name = PostView;
+			sourceTree = "<group>";
+		};
 		B1705B1A1A0EBD1400538869 = {
 			isa = PBXGroup;
 			children = (
@@ -223,15 +256,9 @@
 		B1705B591A0EBD6800538869 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				B1D12D691A10ABE700D9D456 /* FeedCell.xib */,
-				B1D12D6A1A10ABE700D9D456 /* FeedViewController.swift */,
-				B1D12D6B1A10ABE700D9D456 /* FeedViewController.xib */,
-				B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */,
-				5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */,
-				B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */,
-				B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */,
-				B1D12D701A10ABE700D9D456 /* PostViewController.xib */,
-				5BF192841A1704CE0005A274 /* Geocoder.swift */,
+				5B522C4B1A1C132300EBAC6D /* FeedView */,
+				5B522C4C1A1C133C00EBAC6D /* MapView */,
+				5B522C4D1A1C134500EBAC6D /* PostView */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -415,6 +442,7 @@
 				B1D12D771A10ABE700D9D456 /* PostViewController.swift in Sources */,
 				B1D12D661A10ABD100D9D456 /* AppDelegate.swift in Sources */,
 				B1D12D721A10ABE700D9D456 /* FeedViewController.swift in Sources */,
+				5B522C3F1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift in Sources */,
 				B1D12D671A10ABD100D9D456 /* ContainerViewController.swift in Sources */,
 				5BF192851A1704CE0005A274 /* Geocoder.swift in Sources */,
 				B1705B2C1A0EBD1400538869 /* Rendezvous.xcdatamodeld in Sources */,
