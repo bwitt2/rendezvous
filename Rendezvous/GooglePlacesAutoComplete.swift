@@ -48,6 +48,7 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return suggestions.count
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         var cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Subtitle, reuseIdentifier: "Cell")
         if indexPath.row < suggestions.count{
@@ -58,8 +59,9 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     
     func search(query: NSString){
         println("QUERY: \(query)")
-        var url: NSString = createURL( explode(query) )
+        var url: NSString = createURL(explode(query) )
         makeAPICall(url)
+        self.reloadData()
     }
     
     private func createURL(addressMembers: NSArray) -> String{
@@ -97,8 +99,7 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
                     //println(a["description"]!)
                     let val: String = a["description"] as String
                     self.suggestions.addObject(val)
-                    println(self.suggestions.lastObject)
-                    self.reloadData()
+                    println(self.suggestions.lastObject!)
                 }
                 
             }
@@ -106,9 +107,6 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
         }
         
         task.resume()
-        
-        reloadData()
-        
         
     }
 }
