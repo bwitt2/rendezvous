@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6250" systemVersion="14B23" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -9,6 +9,7 @@
             <connections>
                 <outlet property="addressInputField" destination="K45-mc-SDr" id="fdS-G1-z2Y"/>
                 <outlet property="mapView" destination="2Nt-4T-MDi" id="PvO-d4-b05"/>
+                <outlet property="placesObject" destination="A58-8h-d8d" id="ccx-8s-Tvo"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -55,7 +56,19 @@
                 </textField>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Nt-4T-MDi" customClass="GMSMapView">
                     <rect key="frame" x="0.0" y="100" width="600" height="500"/>
+                    <subviews>
+                        <tableView clipsSubviews="YES" alpha="0.0" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="A58-8h-d8d" customClass="GooglePlacesAutoComplete" customModule="Rendezvous" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="500"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </tableView>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="A58-8h-d8d" secondAttribute="bottom" id="II0-9H-H9g"/>
+                        <constraint firstAttribute="trailing" secondItem="A58-8h-d8d" secondAttribute="trailing" id="TGE-Sv-0pS"/>
+                        <constraint firstItem="A58-8h-d8d" firstAttribute="top" secondItem="2Nt-4T-MDi" secondAttribute="top" id="UBB-aA-xEU"/>
+                        <constraint firstItem="A58-8h-d8d" firstAttribute="leading" secondItem="2Nt-4T-MDi" secondAttribute="leading" id="sz7-cp-g72"/>
+                    </constraints>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.53870213860000005" green="0.53504491990000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>

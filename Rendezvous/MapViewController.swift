@@ -16,11 +16,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     var container: ContainerViewController!
     @IBOutlet weak var mapView: GMSMapView?
     @IBOutlet weak var addressInputField: UITextField!
+    @IBOutlet weak var placesObject: GooglePlacesAutoComplete!
     
     var firstLocationUpdate: Bool?
     var locationManager = CLLocationManager()
     
-    var placesObject: GooglePlacesAutoComplete = GooglePlacesAutoComplete()
+    //var placesObject: GooglePlacesAutoComplete = GooglePlacesAutoComplete()
     
     var geocoder: Geocoder = Geocoder()
     
@@ -28,6 +29,17 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     @IBAction func editingChanged(sender: AnyObject) {
         placesObject.search(addressInputField.text)
+        placesObject.reloadData()
+    }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        println("Editing")
+        placesObject.alpha = 1
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        println("Done Editing")
+        placesObject.alpha = 0
+        placesObject.suggestions.removeAllObjects()
+        placesObject.reloadData()
     }
     
     override func viewDidLoad() {
@@ -37,6 +49,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         self.addressInputField.delegate = self;
         addressInputField.userInteractionEnabled = true
         locationManager.startUpdatingLocation()
+        
+        mapView?.addSubview(placesObject)
+        placesObject.delegate = placesObject
+        placesObject.dataSource = placesObject
+        
         startMaps()
         addMarkers()
         addCurrentLocationIcon()
@@ -144,7 +161,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
 
     func addCurrentLocationIcon(){
         if(locationManager.location != nil){
-        var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
+            var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
             currentLocationIcon = CurrentLocationIcon(mapView: mapView, location: location)
         }else{
             println("Current Location not available!")
