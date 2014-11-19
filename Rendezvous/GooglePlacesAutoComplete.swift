@@ -36,6 +36,7 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
         if indexPath.row < suggestions.count && searchField != nil{
             searchField.text = suggestions.objectAtIndex(indexPath.row) as? String
+            searchField.endEditing(true)
         }
     }
     
