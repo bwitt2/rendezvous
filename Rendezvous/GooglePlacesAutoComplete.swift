@@ -18,6 +18,7 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     private let APIKey: NSString = "AIzaSyBW383B23YhA7weSXAPhiwbv5vkv2WP4lA" //our API key
     private let params: NSArray = ["input=", "key="]//basic params
     var suggestions: NSMutableArray = NSMutableArray()
+    var searchField: UITextField!
     
     /*  WITHOUT THIS WE CAN USE THIS AS OUR TABLE VIEW DELEGATE AND STUFF
     
@@ -55,6 +56,11 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
             cell.textLabel.text = suggestions.objectAtIndex(indexPath.row) as? String
         }
         return cell
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath){
+        if indexPath.row < suggestions.count && searchField != nil{
+            searchField.text = suggestions.objectAtIndex(indexPath.row) as? String
+        }
     }
     
     func search(query: NSString){
@@ -99,7 +105,7 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
                     //println(a["description"]!)
                     let val: String = a["description"] as String
                     self.suggestions.addObject(val)
-                    println(self.suggestions.lastObject!)
+                    //println(self.suggestions.lastObject!)
                 }
                 
             }

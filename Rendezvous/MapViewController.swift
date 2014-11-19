@@ -53,6 +53,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         mapView?.addSubview(placesObject)
         placesObject.delegate = placesObject
         placesObject.dataSource = placesObject
+        placesObject.searchField = addressInputField
         
         startMaps()
         addMarkers()
