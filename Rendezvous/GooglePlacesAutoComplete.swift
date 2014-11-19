@@ -19,30 +19,6 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     private let params: NSArray = ["input=", "key="]//basic params
     var suggestions: NSMutableArray = NSMutableArray()
     
-    /*  WITHOUT THIS WE CAN USE THIS AS OUR TABLE VIEW DELEGATE AND STUFF
-    
-    With swift I believe we don't need to use an init unless we plan to process some shiat
-    
-    private var query: NSString! //the address to be queried
-    var latitude: Int! //latitude of current address
-    var longitude: Int! //longitude of current address
-    private let baseURL: NSString!// base URL for Google Maps Geocoding API
-    private let APIKey: NSString!//our API key
-    private let params: NSArray = ["input=", "key="]//basic params
-    var suggestions: NSMutableArray = NSMutableArray()
-    
-    init(){
-        
-        //set that shit to nil
-        query = nil
-        latitude = nil
-        longitude = nil
-        //init
-        APIKey = "AIzaSyBW383B23YhA7weSXAPhiwbv5vkv2WP4lA"
-        baseURL = "https://maps.googleapis.com/maps/api/place/autocomplete/json?"
-    }
-    */
-    
     //Table View Stuff
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
@@ -59,6 +35,9 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     
     func search(query: NSString){
         println("QUERY: \(query)")
+        if(query == ""){
+        self.suggestions.removeAllObjects()
+        }
         var url: NSString = createURL(explode(query) )
         makeAPICall(url)
         self.reloadData()
@@ -77,13 +56,10 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
         
         url = "\(url)&\(params[1])\(APIKey)"
         
-        //println(url)
-        
         return url
     }
     
     private func explode(string: NSString) -> NSArray{
-        //make sure to take out commas
         return string.componentsSeparatedByString(" ")
     }
     
@@ -96,7 +72,6 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
             if let arr = jsonResult["predictions"] as? [NSDictionary]{
                 self.suggestions.removeAllObjects()
                 for a in arr{
-                    //println(a["description"]!)
                     let val: String = a["description"] as String
                     self.suggestions.addObject(val)
                     println(self.suggestions.lastObject!)
