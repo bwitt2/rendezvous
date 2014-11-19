@@ -12,78 +12,68 @@ import UIKit
 // add this below GMSMapViewDelegate
 class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManagerDelegate, UITextFieldDelegate{
     
-    //Holds managing container
-    var container: ContainerViewController!
+    //Outlets
     @IBOutlet weak var mapView: GMSMapView?
     @IBOutlet weak var addressInputField: UITextField!
     @IBOutlet weak var placesObject: GooglePlacesAutoComplete!
     
+    //Member Variables
+    var container: ContainerViewController! //Holds managing container
     var firstLocationUpdate: Bool?
     var locationManager = CLLocationManager()
-    
-    //var placesObject: GooglePlacesAutoComplete = GooglePlacesAutoComplete()
-    
     var geocoder: Geocoder = Geocoder()
-    
     var currentLocationIcon: CurrentLocationIcon!
     
+    //Actions
     @IBAction func editingChanged(sender: AnyObject) {
         placesObject.search(addressInputField.text)
         placesObject.reloadData()
     }
-    func textFieldDidBeginEditing(textField: UITextField) {
-        println("Editing")
-        placesObject.alpha = 1
-    }
-    func textFieldDidEndEditing(textField: UITextField) {
-        println("Done Editing")
-        placesObject.alpha = 0
-        placesObject.suggestions.removeAllObjects()
-        placesObject.reloadData()
-    }
-    
-    override func viewDidLoad() {
-        
-        super.viewDidLoad()
-        
-        self.addressInputField.delegate = self;
-        addressInputField.userInteractionEnabled = true
-        locationManager.startUpdatingLocation()
-        
-        mapView?.addSubview(placesObject)
-        placesObject.delegate = placesObject
-        placesObject.dataSource = placesObject
-        placesObject.searchField = addressInputField
-        
-        startMaps()
-        addMarkers()
-        addCurrentLocationIcon()
-
-        
-    }
-    
-    
     @IBAction func postEventBtn(sender: AnyObject) {
         container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
     }
     @IBAction func refreshFeed(sender: AnyObject) {
         container.loadData()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func swipeRight(sender: AnyObject) {
         container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
     }
-    
     @IBAction func swipeLeft(sender: AnyObject) {
         container.scrollView!.scrollRectToVisible(container.feedView.view.frame, animated: true)
     }
     
+    //Overrides
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+        // Dispose of any resources that can be recreated.
+    }
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        
+        self.addressInputField.delegate = self;
+        addressInputField.userInteractionEnabled = true
+        
+        
+        mapView?.addSubview(placesObject)
+        placesObject.delegate = placesObject
+        placesObject.dataSource = placesObject
+        placesObject.mapView = self
+        
+        addCurrentLocationIcon()
+        
+        locationManager.startUpdatingLocation()
+        startMaps()
+        loadMarkers()
+        
+        
+    }
+    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
+        //does not recognize a touch if the map is what is being touched
+        self.view.endEditing(true)
+    }
     
+    //Optionals
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         self.view.endEditing(true)
         geocoder.getCoordinates(textField.text)
@@ -99,15 +89,22 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         }else{
             println("Current location not available.")
         }
-
+        
         return true
     }
-    
-    override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
-        //does not recognize a touch if the map is what is being touched
-        self.view.endEditing(true)
+    func textFieldDidBeginEditing(textField: UITextField) {
+        println("Editing")
+        placesObject.alpha = 1
+    }
+    func textFieldDidEndEditing(textField: UITextField) {
+        println("Done Editing")
+        placesObject.getCoordinates(placesObject.place)
+        placesObject.alpha = 0
+        placesObject.suggestions.removeAllObjects()
+        placesObject.reloadData()
     }
     
+    //Member Functions
     func startMaps() {
         
         locationManager.delegate = self;
@@ -138,12 +135,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             map.settings.myLocationButton = true
             map.camera = camera
             map.delegate = self
-            addMarkers()
+            loadMarkers()
         }
     }
-    
-    
-    func addMarkers() {
+    func loadMarkers() {
         
         var markers: NSMutableArray = NSMutableArray()
         
@@ -159,7 +154,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         }
 
     }
-
+    func addPost(place: Place) {
+        println("\(placesObject.place.lon), \(placesObject.place.lat)")
+    }
     func addCurrentLocationIcon(){
         if(locationManager.location != nil){
             var location: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
@@ -168,10 +165,12 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
             println("Current Location not available!")
         }
     }
-    
     func locationManager(manager: CLLocationManager,  didUpdateLocations locations: NSArray) -> Void {
         var coor: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: locationManager.location.coordinate.latitude, longitude: locationManager.location.coordinate.longitude)
+        
+        //Sometimes calls on nil
         currentLocationIcon.updateLocation(coor)
+        
         //when the icon changes location we need to make it animate, not redraw at that location
         
     }

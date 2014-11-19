@@ -19,6 +19,7 @@
 		5BFF43B31A1195E000648937 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43B21A1195E000648937 /* libicucore.dylib */; };
 		5BFF43B51A1195F200648937 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5BFF43B41A1195F200648937 /* OpenGLES.framework */; };
 		B1495B611A12AE6E00D0A45A /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1495B601A12AE6E00D0A45A /* FacebookSDK.framework */; };
+		B14F0BFE1A1D459000518397 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = B14F0BFD1A1D459000518397 /* Place.swift */; };
 		B1557DB81A103DCE005BD700 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1557DB71A103DCE005BD700 /* MapKit.framework */; };
 		B155F4AE1A12A95200822F77 /* GoogleMaps.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B155F4AD1A12A95200822F77 /* GoogleMaps.framework */; };
 		B155F4B01A12A96000822F77 /* GoogleMaps.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B155F4AF1A12A96000822F77 /* GoogleMaps.bundle */; };
@@ -77,6 +78,7 @@
 		5BFF43B21A1195E000648937 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		5BFF43B41A1195F200648937 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		B1495B601A12AE6E00D0A45A /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FacebookSDK.framework; sourceTree = "<group>"; };
+		B14F0BFD1A1D459000518397 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		B1557DB71A103DCE005BD700 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B155F4AD1A12A95200822F77 /* GoogleMaps.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = GoogleMaps.framework; sourceTree = "<group>"; };
 		B155F4AF1A12A96000822F77 /* GoogleMaps.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = GoogleMaps.bundle; path = GoogleMaps.framework/Versions/A/Resources/GoogleMaps.bundle; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				B1D12D6D1A10ABE700D9D456 /* MapViewController.swift */,
 				5BF192821A16EB700005A274 /* CurrentLocationIcon.swift */,
 				5B522C3E1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift */,
+				B14F0BFD1A1D459000518397 /* Place.swift */,
 				B1D12D6E1A10ABE700D9D456 /* MapViewController.xib */,
 				5BF192841A1704CE0005A274 /* Geocoder.swift */,
 			);
@@ -445,6 +448,7 @@
 				5B522C3F1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift in Sources */,
 				B1D12D671A10ABD100D9D456 /* ContainerViewController.swift in Sources */,
 				5BF192851A1704CE0005A274 /* Geocoder.swift in Sources */,
+				B14F0BFE1A1D459000518397 /* Place.swift in Sources */,
 				B1705B2C1A0EBD1400538869 /* Rendezvous.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

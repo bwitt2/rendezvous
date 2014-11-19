@@ -109,7 +109,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, GMSMapVie
                 println("Loaded \(self.feedData.count) points")
                 
                 self.feedView.feedTable.reloadData()
-                self.mapView.addMarkers()
+                self.mapView.loadMarkers()
                 
             }
             else{
