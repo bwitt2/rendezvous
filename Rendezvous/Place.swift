@@ -11,8 +11,7 @@ import Foundation
 class Place{
     var placeID: String!
     var desc: String!
-    var lat: Double!
-    var lon: Double!
+    var location: PFGeoPoint!
     
     init(){}
     

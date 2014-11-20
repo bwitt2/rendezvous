@@ -104,25 +104,21 @@ class GooglePlacesAutoComplete: UITableView, UITableViewDelegate, UITableViewDat
     func getCoordinates(selected: Place){
         
         let place_id: String = selected.placeID
-        var lat: Double!
-        var lng: Double!
+        
         let url: NSURL = NSURL(string:"https://maps.googleapis.com/maps/api/place/details/json?placeid=\(place_id)&key=\(APIKey)")!
         
         let task = NSURLSession.sharedSession().dataTaskWithURL(url) {(data, response, error) in
             var jsonResult: NSDictionary = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSDictionary
-            //println("nigga we made it...to this loop")
-            //this is possibly the ugliest code ive ever seen.....needs to be fixed, my bad
-            //println(jsonResult)
+            
             if(jsonResult["result"] != nil){
                 var step1: NSDictionary = jsonResult["result"] as NSDictionary
                 var step2 = step1["geometry"] as NSDictionary
                 var step3 = step2["location"] as NSDictionary
                 
-                self.place.lat = step3["lat"] as? Double
-                println(self.place.lat)
+                let lon = step3["lng"] as? Double
+                let lat = step3["lat"] as? Double
                 
-                self.place.lon = step3["lng"] as? Double
-                println(self.place.lon)
+                self.place.location = PFGeoPoint(latitude: lat!, longitude: lon!)
                 
                 self.mapView.addPost(self.place)
             }

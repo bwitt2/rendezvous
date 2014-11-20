@@ -32,10 +32,10 @@
                                     <action selector="postEventBtn:" destination="-1" id="fSU-B2-513"/>
                                 </connections>
                             </barButtonItem>
-                            <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Okn-zp-GAN">
+                            <barButtonItem key="rightBarButtonItem" systemItem="organize" id="Okn-zp-GAN">
                                 <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
-                                    <action selector="refreshFeed:" destination="-1" id="TS8-cy-Fkm"/>
+                                    <action selector="feedBtn:" destination="-1" id="beX-oZ-zfE"/>
                                 </connections>
                             </barButtonItem>
                         </navigationItem>

@@ -23,6 +23,7 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     var locationManager = CLLocationManager()
     var geocoder: Geocoder = Geocoder()
     var currentLocationIcon: CurrentLocationIcon!
+    var markers: NSMutableArray = NSMutableArray()
     
     //Actions
     @IBAction func editingChanged(sender: AnyObject) {
@@ -30,10 +31,10 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
         placesObject.reloadData()
     }
     @IBAction func postEventBtn(sender: AnyObject) {
-        container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
+        println("Current Location Post")
     }
-    @IBAction func refreshFeed(sender: AnyObject) {
-        container.loadData()
+    @IBAction func feedBtn(sender: AnyObject) {
+        container.scrollView!.scrollRectToVisible(container.feedView.view.frame, animated: true)
     }
     @IBAction func swipeRight(sender: AnyObject) {
         container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
@@ -140,8 +141,13 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     }
     func loadMarkers() {
         
-        var markers: NSMutableArray = NSMutableArray()
+        //Remove all markers
+        for object in markers {
+            let marker: GMSMarker = object as GMSMarker
+            marker.map = nil
+        }
         
+        //Add all markers
         for object in container.feedData as NSMutableArray{
             let point:PFObject = object as PFObject
             let location: PFGeoPoint = point.objectForKey("location") as PFGeoPoint
@@ -155,7 +161,11 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
 
     }
     func addPost(place: Place) {
-        println("\(placesObject.place.lon), \(placesObject.place.lat)")
+        println(placesObject.place.location)
+        container.postView.location = placesObject.place.location
+        presentViewController(container.postView, animated: true, completion: nil)
+        addressInputField.text = ""
+        
     }
     func addCurrentLocationIcon(){
         if(locationManager.location != nil){

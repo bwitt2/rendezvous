@@ -66,18 +66,19 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, GMSMapVie
         self.scrollView!.addSubview(mapView.view)
         mapView.didMoveToParentViewController(self)
         
-        self.addChildViewController(postView)
-        self.scrollView!.addSubview(postView.view)
-        postView.didMoveToParentViewController(self)
+        //Will add from mapview
+        //self.addChildViewController(postView)
+        //self.scrollView!.addSubview(postView.view)
+        //postView.didMoveToParentViewController(self)
         
         //Set up the frames of the view controllers to align
         //with eachother inside the container view
         
-        mapView.view.frame.origin.x = self.view.frame.width
-        feedView.view.frame.origin.x = 2*self.view.frame.width
+        mapView.view.frame.origin.x = 0
+        feedView.view.frame.origin.x = self.view.frame.width
     
         //Set the size of the scroll view that contains the frames
-        var scrollWidth: CGFloat  = 3 * self.view.frame.width
+        var scrollWidth: CGFloat  = 2 * self.view.frame.width
         var scrollHeight: CGFloat  = self.view.frame.size.height
         self.scrollView!.contentSize = CGSizeMake(scrollWidth, scrollHeight)
         
@@ -94,7 +95,18 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, GMSMapVie
         
         var findFeedData: PFQuery = PFQuery(className: "Posts")
         
-        findFeedData.findObjectsInBackgroundWithBlock(){
+        
+        //Must find better solution
+        feedData = NSMutableArray(array: findFeedData.findObjects().reverse())
+        feedView.feedTable.reloadData()
+        mapView.loadMarkers()
+        
+        println("Loaded \(feedData.count) points")
+        
+        
+        //Has issues where table is being reloaded before array is populated
+        
+        /*findFeedData.findObjectsInBackgroundWithBlock(){
             (objects: [AnyObject]!, error: NSError!)->Void in
             if error == nil{
                 for object in objects{
@@ -115,7 +127,7 @@ class ContainerViewController: UIViewController, UIScrollViewDelegate, GMSMapVie
             else{
                 NSLog("Error: %@ %@", error, error.userInfo!)
             }
-        }
+        }*/
     }
 
     override func didReceiveMemoryWarning() {

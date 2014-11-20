@@ -20,6 +20,7 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
     //var posts: PFObject = PFObject(className: "Posts")
     
     var fbID: String!
+    var refreshControl: UIRefreshControl!
     
     @IBOutlet weak var feedTable: UITableView!
     
@@ -30,21 +31,47 @@ class FeedViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         feedTable.registerNib(nib, forCellReuseIdentifier: "feedCell")
         
+        refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        feedTable.addSubview(refreshControl)
         
     }
+    
+    func refresh(sender:AnyObject)
+    {
+        refreshBegin("Refresh",
+            refreshEnd: {(x:Int) -> () in
+                self.container.loadData()
+                //self.feedTable.reloadData()
+                println("Table Reloaded")
+                self.refreshControl.endRefreshing()
+        })
+    }
+    func refreshBegin(newtext:String, refreshEnd:(Int) -> ()) {
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)) {
+            println("refreshing")
+            sleep(2)
+            
+            dispatch_async(dispatch_get_main_queue()) {
+                refreshEnd(0)
+            }
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     @IBAction func postEventBtn(sender: AnyObject) {
-        container.scrollView!.scrollRectToVisible(container.postView.view.frame, animated: true)
+        container.scrollView!.scrollRectToVisible(container.mapView.view.frame, animated: true)
     }
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
         return container.feedData.count
     }
-    @IBAction func refreshFeed(sender: AnyObject) {
-        container.loadData()
+    @IBAction func settingsBtn(sender: AnyObject) {
+        println("Settings")
     }
+    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell{
         //let cell: UITableViewCell = UITableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "point")
         //let cell: FeedCellController = FeedCellController(style: UITableViewCellStyle.Default, reuseIdentifier: "point")

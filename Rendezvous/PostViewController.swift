@@ -12,6 +12,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
     
     var container: ContainerViewController!
     
+    //Some issues displaying properly
     @IBOutlet weak var captionField: UITextField!
     @IBOutlet weak var addedTime: UILabel!
     @IBOutlet weak var locationLabel: UILabel!
@@ -25,7 +26,9 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         //Set Added Time Label
         addedTime.text = "0 min"
         
-        PFGeoPoint.geoPointForCurrentLocationInBackground( {
+        //location = container.mapView.placesObject.place.location!
+        
+        /*PFGeoPoint.geoPointForCurrentLocationInBackground( {
             (point:PFGeoPoint!, error:NSError!) -> Void in
             
             if point != nil {
@@ -40,7 +43,7 @@ class PostViewController: UIViewController, UITextFieldDelegate {
                 // Failed to get location
                 NSLog("Failed to get current location") // never printed
             }
-        })
+        })*/
         
 
     }
@@ -50,6 +53,12 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func cancelBtn(sender: AnyObject) {
+        captionField.text = ""
+        addedTime.text = "0 min"
+        timeStepVal.value = 0
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
     
     @IBAction func saveBtn(sender: AnyObject) {
         //Close Keyboard
@@ -72,7 +81,9 @@ class PostViewController: UIViewController, UITextFieldDelegate {
         
         post.saveInBackground()
         
-        container.scrollView!.scrollRectToVisible(container.mapView.view.frame, animated: true)
+        //container.scrollView!.scrollRectToVisible(container.mapView.view.frame, animated: true)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
 
     }
     
