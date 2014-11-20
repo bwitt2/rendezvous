@@ -32,7 +32,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         GMSServices.provideAPIKey("AIzaSyBodzRxtGixKP-Ox9Ut9_KLG6EX0kmy5vo")
         
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        var storyboard = UIStoryboard(name: "Main", bundle: nil)
+        println(storyboard.description)
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
         
+        var currentUser = PFUser.currentUser()
+        if (currentUser != nil && PFFacebookUtils.isLinkedWithUser(currentUser)) {
+            initialViewController = storyboard.instantiateViewControllerWithIdentifier("ContainerViewController") as UIViewController
+        }
+        
+        self.window?.rootViewController = initialViewController
+        self.window?.makeKeyAndVisible()
         
         return true
     }
