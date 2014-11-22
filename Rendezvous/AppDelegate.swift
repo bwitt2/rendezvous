@@ -31,11 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         //set up for Google Maps API
         
         GMSServices.provideAPIKey("AIzaSyBodzRxtGixKP-Ox9Ut9_KLG6EX0kmy5vo")
-        
+        /*
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         var storyboard = UIStoryboard(name: "Main", bundle: nil)
         println(storyboard.description)
-        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController") as UIViewController
+        var initialViewController = storyboard.instantiateViewControllerWithIdentifier("SetupViewController") as UIViewController
         
         var currentUser = PFUser.currentUser()
         if (currentUser != nil && PFFacebookUtils.isLinkedWithUser(currentUser)) {
@@ -44,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         
         self.window?.rootViewController = initialViewController
         self.window?.makeKeyAndVisible()
-        
+        */
         return true
     }
     

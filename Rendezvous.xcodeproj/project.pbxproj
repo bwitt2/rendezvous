@@ -52,6 +52,8 @@
 		B1D12D771A10ABE700D9D456 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */; };
 		B1D12D781A10ABE700D9D456 /* PostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D701A10ABE700D9D456 /* PostViewController.xib */; };
 		B1D12D7A1A10B81B00D9D456 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = B1D12D791A10B81B00D9D456 /* placeholder.png */; };
+		B1DC96701A2040E9001DAADF /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DC966F1A2040E9001DAADF /* SignUpViewController.swift */; };
+		B1DC96721A204BDB001DAADF /* SetupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DC96711A204BDB001DAADF /* SetupViewController.swift */; };
 		B1F6BF1F1A12B99F005EA210 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1F6BF1E1A12B99F005EA210 /* Bolts.framework */; };
 /* End PBXBuildFile section */
 
@@ -116,6 +118,8 @@
 		B1D12D6F1A10ABE700D9D456 /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 		B1D12D701A10ABE700D9D456 /* PostViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostViewController.xib; sourceTree = "<group>"; };
 		B1D12D791A10B81B00D9D456 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
+		B1DC966F1A2040E9001DAADF /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		B1DC96711A204BDB001DAADF /* SetupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetupViewController.swift; sourceTree = "<group>"; };
 		B1F6BF1E1A12B99F005EA210 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -216,6 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				B1D12D6C1A10ABE700D9D456 /* Main.storyboard */,
+				B1DC966F1A2040E9001DAADF /* SignUpViewController.swift */,
+				B1DC96711A204BDB001DAADF /* SetupViewController.swift */,
 				B1D12D631A10ABD100D9D456 /* AppDelegate.swift */,
 				B1D12D641A10ABD100D9D456 /* ContainerViewController.swift */,
 				B1D12D651A10ABD100D9D456 /* LoginViewController.swift */,
@@ -445,10 +451,12 @@
 				B1D12D771A10ABE700D9D456 /* PostViewController.swift in Sources */,
 				B1D12D661A10ABD100D9D456 /* AppDelegate.swift in Sources */,
 				B1D12D721A10ABE700D9D456 /* FeedViewController.swift in Sources */,
+				B1DC96701A2040E9001DAADF /* SignUpViewController.swift in Sources */,
 				5B522C3F1A1BC1A500EBAC6D /* GooglePlacesAutoComplete.swift in Sources */,
 				B1D12D671A10ABD100D9D456 /* ContainerViewController.swift in Sources */,
 				5BF192851A1704CE0005A274 /* Geocoder.swift in Sources */,
 				B14F0BFE1A1D459000518397 /* Place.swift in Sources */,
+				B1DC96721A204BDB001DAADF /* SetupViewController.swift in Sources */,
 				B1705B2C1A0EBD1400538869 /* Rendezvous.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -76,6 +76,9 @@ class MapViewController: UIViewController, GMSMapViewDelegate, CLLocationManager
     
     //Optionals
     func textFieldShouldReturn(textField: UITextField) -> Bool {
+        
+        //Currently crashing program
+        
         self.view.endEditing(true)
         geocoder.getCoordinates(textField.text)
         println(textField.text)
